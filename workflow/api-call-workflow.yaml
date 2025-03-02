@@ -1,17 +1,19 @@
 apiVersion: argoproj.io/v1alpha1
-kind: Application
+kind: Workflow
 metadata:
-  name: api-call-app
+  name: api-call-workflow
 spec:
-  project: default
-  source:
-    repoURL: 'https://github.com/sipri83/argo.git'
-    targetRevision: HEAD
-    path: 'workflow'  # Location of your workflow YAML in the repo
-  destination:
-    server: 'https://kubernetes.default.svc'
-    namespace: default
-  syncPolicy:
-    automated:
-      prune: true
-      selfHeal: true
+  entrypoint: api-call
+  templates:
+    - name: api-call
+      container:
+        image: curlimages/curl:latest
+        command: [ "curl" ]
+        args:
+          - "-X"
+          - "POST"
+          - "http://your-api-service.com/api/v1/resource"
+          - "-H"
+          - "Content-Type: application/json"
+          - "-d"
+          - '{"key1":"value1", "key2":"value2"}'

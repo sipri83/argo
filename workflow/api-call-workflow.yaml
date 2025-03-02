@@ -11,9 +11,5 @@ spec:
         command: [ "curl" ]
         args:
           - "-X"
-          - "POST"
-          - "http://your-api-service.com/api/v1/resource"
-          - "-H"
-          - "Content-Type: application/json"
-          - "-d"
-          - '{"key1":"value1", "key2":"value2"}'
+          - "GET"
+          - "https://jsonplaceholder.typicode.com/posts"

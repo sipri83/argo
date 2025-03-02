@@ -7,7 +7,7 @@ spec:
   source:
     repoURL: 'https://github.com/sipri83/argo.git'
     targetRevision: HEAD
-    path: 'path/to/workflows'  # Location of your workflow YAML in the repo
+    path: 'workflow'  # Location of your workflow YAML in the repo
   destination:
     server: 'https://kubernetes.default.svc'
     namespace: default

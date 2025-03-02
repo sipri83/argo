@@ -5,7 +5,7 @@ metadata:
 spec:
   project: default
   source:
-    repoURL: 'https://github.com/your-username/your-repository.git'
+    repoURL: 'https://github.com/sipri83/argo.git'
     targetRevision: HEAD
     path: 'path/to/workflows'  # Location of your workflow YAML in the repo
   destination:

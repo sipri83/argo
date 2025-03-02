@@ -1,0 +1,17 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: api-call-app
+spec:
+  project: default
+  source:
+    repoURL: 'https://github.com/your-username/your-repository.git'  # Replace with your Git repository
+    targetRevision: HEAD
+    path: 'workflow'  # Replace with the path to your workflow YAML in the repository
+  destination:
+    server: 'https://kubernetes.default.svc'
+    namespace: default
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
